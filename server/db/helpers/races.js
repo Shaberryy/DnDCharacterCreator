@@ -1,18 +1,18 @@
 const client = require('../client')
 
-const createClass = async ({dndClass, traits, details}) => {
+const createRace = async ({race, traits, details}) => {
     try{
         const{
-            rows: [classes],
+            rows: [races],
         } = await client.query(
             `
-            INSERT INTO CLASSES(dndCLass, traits, details)
+            INSERT INTO RACES(race, traits, details)
             VALUES(var4)
             RETURNING *;
             `,
-            [dndClass, traits, details]
+            [race, traits, details]
         )
-     return classes
+     return races
     
      }catch (error){
         throw error
@@ -20,12 +20,12 @@ const createClass = async ({dndClass, traits, details}) => {
     
 }
 
-const getAllClasses = async () => {
+const getAllRaces = async () => {
     try{
         const { rows } 
         =await client.query(`
         SELECT *
-        FROM classes;
+        FROM races;
         `)
      return rows   
     }catch (error) {
@@ -34,4 +34,4 @@ const getAllClasses = async () => {
 }
 
 
-module.exports = { createClass, getAllClasses}
+module.exports = { createRace, getAllRaces}

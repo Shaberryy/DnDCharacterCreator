@@ -2,16 +2,16 @@
 
 // Class
 const classes = [
-{class: 'Bard', traits: '', details: ''},
-{class: 'Cleric', traits: '', details: ''},
-{class: 'Druid', traits: '', details: ''},
-{class: 'Rogue', traits: '', details: ''},
-{class: 'Wizard', traits: '', details: ''},
+{dndClass: 'Bard', traits: '', details: ''},
+{dndClass: 'Cleric', traits: '', details: ''},
+{dndClass: 'Druid', traits: '', details: ''},
+{dndClass: 'Rogue', traits: '', details: ''},
+{dndClass: 'Wizard', traits: '', details: ''},
 {class: 'Warlock', traits: '', details: ''},
 ]
 
 //Race
-const Races = [
+const races = [
 // {race: 'Elf', subrace: 'High Elf, Wood Elf', traits: 'Darkvision, Keen Senses, Fey Ancestry, Trance, Intelligence +1, Wisdom +1'},
 {race: 'Dwarf', traits: '', details: ''},
 {race: 'Drow', traits: '', details: ''},
@@ -22,7 +22,7 @@ const Races = [
 ]
 
 // Background/origin
-const Backgrounds = [
+const backgrounds = [
 {background: 'Sage', details: '"You are curious and well-read, with an unending thirst for knowledge. Learning about rare lore of the world will inspire you to put this knowledge to greater purpose."',},
 {background: 'Acolyte', details: '',},
 {background: 'Charlatan',details: '',},
@@ -45,8 +45,8 @@ const abilities = [
 "Charisma",
 ]
 
-const characterSheet = [
+const characterSheets = [
     {name:'Marcey', raceId: 2, classId: 1, backgroundId: 4 },
 ]
 
-module.exports = {abilities, Races, Backgrounds, classes, characterSheet}
+module.exports = {abilities, races, backgrounds, classes, characterSheets}
