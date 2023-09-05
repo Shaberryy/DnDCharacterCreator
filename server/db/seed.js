@@ -31,7 +31,7 @@ const createTables = async () => {
       traits varchar(700) UNIQUE NOT NULL,
       details varchar(700) UNIQUE NOT NULL,
    );
-   CREATE TABLE races (
+   CREATE TABLE backgrounds (
       "backgrounds" SERIAL PRIMARY KEY,
       details varchar(700) UNIQUE NOT NULL,
    );
@@ -49,43 +49,67 @@ console.log("Tables built!");
 
 // insert mock data from seeData.js
 const createInitialRaces = async () => {
-    try {
-        //Looping through the "races" array from seedData
-        for (const race of races) {
-            //Insert each race into the table
-            await createRace(race)
-        }
-        console.log("created races")
-    } catch (error) {
-        throw error
+  try {
+    //Looping through the "races" array from seedData
+    for (const race of races) {
+      //Insert each race into the table
+      await createRace(race);
     }
-}
+    console.log("created races");
+  } catch (error) {
+    throw error;
+  }
+};
+const createInitialCLasses = async () => {
+  try {
+    //Looping through the "races" array from seedData
+    for (const dndClass of classes) {
+      await createClass(dndClass);
+    }
+    console.log("created classes");
+  } catch (error) {
+    throw error;
+  }
+};
 const createInitialCharacterSheet = async () => {
-   try {
-       //Looping through the "characterSheets" array from seedData
-       for (const characterSheet of characterSheets) {
-           await createcharacterSheet(characterSheet)
-       }
-       console.log("created characterSheets")
-   } catch (error) {
-       throw error
-   }
-}
+  try {
+    //Looping through the "characterSheets" array from seedData
+    for (const characterSheet of characterSheets) {
+      await createCharacterSheet(characterSheet);
+    }
+    console.log("created characterSheets");
+  } catch (error) {
+    throw error;
+  }
+};
+const createInitialBackgrounds = async () => {
+  try {
+    //Looping through the "backgrounds" array from seedData
+    for (const background of backgrounds) {
+      await createBackgrounds(background);
+    }
+    console.log("created backgrounds");
+  } catch (error) {
+    throw error;
+  }
+};
+// rebuild
+const rebuildDb = async () => {
+  try {
+    client.connect();
+    await dropTables();
+    await createTables();
 
-const rebuildDb = async () =>{
-try{
-   client.connect()
-      await dropTables()
-      await createTables()
-
-      console.log("start seeding...")
-      await createInitialCharacterSheet()
-}
-catch (error){
- console.error(error)
-}finally {
-   client.end()
-}
-}
+    console.log("start seeding...");
+    await createInitialCharacterSheet();
+    await createInitialCLasses();
+    await createInitialRaces();
+    await createInitialBackgrounds();
+  } catch (error) {
+    console.error(error);
+  } finally {
+    client.end();
+  }
+};
 
 rebuildDb();
