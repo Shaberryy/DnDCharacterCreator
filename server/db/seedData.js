@@ -7,7 +7,7 @@ const classes = [
 {dndClass: 'Druid', traits: '', details: ''},
 {dndClass: 'Rogue', traits: '', details: ''},
 {dndClass: 'Wizard', traits: '', details: ''},
-{class: 'Warlock', traits: '', details: ''},
+{dndClass: 'Warlock', traits: '', details: ''},
 ]
 
 //Race

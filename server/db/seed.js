@@ -1,6 +1,14 @@
 // table functions
 const client = require("./client");
 
+const { createClass } = require("./helpers/class");
+const { createRace } = require("./helpers/races");
+const { createBackgrounds } = require("./helpers/background");
+const { createAbility } = require("./helpers/abilities");
+const { createCharacterSheet } = require("./helpers/characterSheet");
+
+// const {  } = require("./helpers/");
+
 // reset db
 // drop table
 const dropTables = async () => {
@@ -82,6 +90,17 @@ const createInitialCharacterSheet = async () => {
     throw error;
   }
 };
+const createintitialAbility = async () => {
+   try {
+     //Looping through the "abilites" array from seedData
+     for (const ability of abilities) {
+       await createCharacterSheet(ability);
+     }
+     console.log("created abilities");
+   } catch (error) {
+     throw error;
+   }
+ };
 const createInitialBackgrounds = async () => {
   try {
     //Looping through the "backgrounds" array from seedData
@@ -105,6 +124,7 @@ const rebuildDb = async () => {
     await createInitialCLasses();
     await createInitialRaces();
     await createInitialBackgrounds();
+    await createintitialAbility();
   } catch (error) {
     console.error(error);
   } finally {
