@@ -35,7 +35,7 @@ const createTables = async () => {
       id SERIAL PRIMARY KEY,
       name varchar(100) UNIQUE NOT NULL,
       traits varchar(700) NOT NULL,
-      details varchar(700)  NOT NULL
+      details varchar(800)  NOT NULL
    );
    CREATE TABLE classes (
       id SERIAL PRIMARY KEY,

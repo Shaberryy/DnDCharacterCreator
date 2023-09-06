@@ -2,18 +2,59 @@
 
 // Class
 const classes = [
-  { name: "Bard", traits: "no", details: "a" },
-  { name: "Cleric", traits: "yes", details: "v" },
-  { name: "Druid", traits: "no", details: "a" },
-  { name: "Rogue", traits: "yes", details: "b" },
-  { name: "Wizard", traits: "no", details: "a" },
-  { name: "Warlock", traits: "yes", details: "b" },
+  {
+    name: "Bard",
+    traits: "Primary Ability: Charisma",
+    details:
+      '"You know music is more than a fancy - it is power. Through study and adventure, you have mastered song, speech, and the magic within."',
+  },
+  {
+    name: "Cleric",
+    traits: "Primary Ability: Wisdom",
+    details:
+      '"Clerics are representatives of the gods they worship, wielding potent divine magic for good or ill."',
+  },
+  {
+    name: "Druid",
+    traits: "Primary Ability: Wisdom",
+    details:
+      '"Druids channel the elemental forces of nature and share a deep kinship with animals. Mastery of Wild Shape allows them to transform into beasts from all over the Realms."',
+  },
+  {
+    name: "Rogue",
+    traits: "Primary Ability: Dexterity",
+    details:
+      '"With stealth, skill and uncanny reflexes, a rogue`s versatility lets them get the upper hand in almost any situation."',
+  },
+  {
+    name: "Wizard",
+    traits: "Primary Ability: Intelligence",
+    details:
+      '"Wizards master the arcane by specialising in individual schools of magic, combining ancient spells with modern research."',
+  },
+  {
+    name: "Warlock",
+    traits: "Primary Ability: Charisma",
+    details:
+      '"Bound by a pact to an all-powerful patron, warlocks trade their loyalty for supernatural abilities and unique magic."',
+  },
+  {
+    name: "Barbarian",
+    traits: "Primary Ability: Strength",
+    details:
+      '"The strong embrace the wild that hides inside - keen instincts, primal physicality, and most of all, an unbridled, unquenchable rage."',
+  },
 ];
 
 //Race
 const races = [
   // {race: 'Elf', subrace: 'High Elf, Wood Elf', traits: 'Darkvision, Keen Senses, Fey Ancestry, Trance, Intelligence +1, Wisdom +1'},
-  { name: "Dwarf", traits: "g", details: "q" },
+  {
+    name: "Dragonborn",
+    traits: "Draconic Ancestry, Breath Weapon",
+    details:
+      '"A proud race that values clan and skills above all else. Once enslaved by dragons, they strive to be self-sufficient, not wanting to be beholden to anyone, not even the gods."',
+  },
   {
     name: "Drow",
     traits:
@@ -122,7 +163,8 @@ const abilities = [
 ];
 
 const characterSheets = [
-  { name: "Marcey", raceId: 2, classId: 1, abilityId: 4, backgroundsId: 1 },
+  { name: "Marcey", raceId: 2, classId: 1, abilityId: 6, backgroundsId: 5 },
+  { name: "Amelia", raceId: 3, classId: 5, abilityId: 5, backgroundsId: 1 },
 ];
 
 module.exports = { abilities, races, backgrounds, classes, characterSheets };
