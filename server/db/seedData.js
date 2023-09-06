@@ -46,7 +46,7 @@ const abilities = [
 ]
 
 const characterSheets = [
-    {name:'Marcey', raceId: 2, classId: 1, backgroundId: 4 },
+    {name:'Marcey', race: 2, dndClass: 1, background: 4 },
 ]
 
-module.exports = {abilityId, races, backgroundId, classId, characterSheets}
+module.exports = {abilities, races, backgrounds, classes, characterSheets}
