@@ -49,4 +49,4 @@ const characterSheets = [
     {name:'Marcey', raceId: 2, classId: 1, backgroundId: 4 },
 ]
 
-module.exports = {abilities, races, backgrounds, classes, characterSheets}
+module.exports = {abilityId, races, backgroundId, classId, characterSheets}
