@@ -1,14 +1,14 @@
 const client = require('../client')
 
-async function createAbility({ ability }) {
+async function createAbility ({ name }) {
     try {
         const {
             rows: [abilityName]
         } = await client.query(`
-            INSERT INTO abilities(ability)
+            INSERT INTO abilities(name)
             VALUES($1)
             RETURNING *;
-        `, [ability]
+        `, [name]
         )
         return abilityName
     } catch (error) {

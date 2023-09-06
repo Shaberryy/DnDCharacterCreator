@@ -2,51 +2,51 @@
 
 // Class
 const classes = [
-{dndClass: 'Bard', traits: '', details: ''},
-{dndClass: 'Cleric', traits: '', details: ''},
-{dndClass: 'Druid', traits: '', details: ''},
-{dndClass: 'Rogue', traits: '', details: ''},
-{dndClass: 'Wizard', traits: '', details: ''},
-{dndClass: 'Warlock', traits: '', details: ''},
+{name: 'Bard', traits: 'no', details: 'a'},
+{name: 'Cleric', traits: 'yes', details: 'v'},
+{name: 'Druid', traits: 'no', details: 'a'},
+{name: 'Rogue', traits: 'yes', details: 'b'},
+{name: 'Wizard', traits: 'no', details: 'a'},
+{name: 'Warlock', traits: 'yes', details: 'b'},
 ]
 
 //Race
 const races = [
 // {race: 'Elf', subrace: 'High Elf, Wood Elf', traits: 'Darkvision, Keen Senses, Fey Ancestry, Trance, Intelligence +1, Wisdom +1'},
-{race: 'Dwarf', traits: '', details: ''},
-{race: 'Drow', traits: '', details: ''},
-{race: 'Elf', traits: '', details: ''},
-{race: 'Tiefling', traits: '', details: ''},
-{race: 'Human', traits: '', details: ''},
+{name: 'Dwarf', traits: 'g', details: 'q'},
+{name: 'Drow', traits: 'b', details: 'w'},
+{name: 'Elf', traits: 'f', details: 'e'},
+{name: 'Tiefling', traits: 'e', details: 'r'},
+{name: 'Human', traits: 's', details: 'g'},
 // {race: '', traits: '', details: ""}
 ]
 
 // Background/origin
 const backgrounds = [
-{background: 'Sage', details: '"You are curious and well-read, with an unending thirst for knowledge. Learning about rare lore of the world will inspire you to put this knowledge to greater purpose."',},
-{background: 'Acolyte', details: '',},
-{background: 'Charlatan',details: '',},
-{background: 'Criminal',details: '',},
-{background: 'Urchin',details: ''},
-{background: 'Noble',details: ''},
-{background: 'Entertainer',details: ''},
-{background: 'Hermit',details: ''},
-{background: 'Outlander',details: ''},
-{background: 'Soldier',details: ''},
-{background: 'Folk Hero',details: ''},
+{name: 'Sage', details: '"You are curious and well-read, with an unending thirst for knowledge. Learning about rare lore of the world will inspire you to put this knowledge to greater purpose."',},
+{name: 'Acolyte', details: 's',},
+{name: 'Charlatan',details: 's',},
+{name: 'Criminal',details: 'a',},
+{name: 'Urchin',details: 'f'},
+{name: 'Noble',details: 'b'},
+{name: 'Entertainer',details: 'b'},
+{name: 'Hermit',details: 'e'},
+{name: 'Outlander',details: 'b'},
+{name: 'Soldier',details: 'e'},
+{name: 'Folk Hero',details: 'b'},
 ]
 // Abilities
 const abilities = [
-"Strength",
-"Dexterity",
-"Constitution",
-"Intelligence",
-"Wisdom",
-"Charisma",
+{name: "Strength"},
+{name: "Dexterity"},
+{name: "Constitution"},
+{name: "Intelligence"},
+{name: "Wisdom"},
+{name: "Charisma"}
 ]
 
 const characterSheets = [
-    {name:'Marcey', race: 2, dndClass: 1, background: 4 },
+    {name:'Marcey', raceId: 2, classId: 1, abilityId: 4, backgroundsId: 1 },
 ]
 
 module.exports = {abilities, races, backgrounds, classes, characterSheets}

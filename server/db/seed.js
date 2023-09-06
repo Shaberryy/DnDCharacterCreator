@@ -7,6 +7,8 @@ const { createBackgrounds } = require("./helpers/background");
 const { createAbility } = require("./helpers/abilities");
 const { createCharacterSheets } = require("./helpers/characterSheet");
 
+const {abilities, races, backgrounds, classes, characterSheets} = require('./seedData')
+
 // const {  } = require("./helpers/");
 
 // reset db
@@ -14,11 +16,11 @@ const { createCharacterSheets } = require("./helpers/characterSheet");
 const dropTables = async () => {
   try {
     await client.query(`
-    DROP TABLE IF EXISTS races;
-    DROP TABLE IF EXISTS backgrounds;
-    DROP TABLE IF EXISTS classes;
-    DROP TABLE IF EXISTS abilities;
     DROP TABLE IF EXISTS characterSheets;
+    DROP TABLE IF EXISTS abilities;
+    DROP TABLE IF EXISTS classes;
+    DROP TABLE IF EXISTS backgrounds;
+    DROP TABLE IF EXISTS races;
     `);
   } catch (error) {
     throw error;
@@ -30,30 +32,35 @@ const createTables = async () => {
   console.log("Building tables...");
   await client.query(`
    CREATE TABLE races (
-      "race" SERIAL PRIMARY KEY,
-      traits varchar(700) UNIQUE NOT NULL,
-      details varchar(700) UNIQUE NOT NULL,
+      id SERIAL PRIMARY KEY,
+      name varchar(100) UNIQUE NOT NULL,
+      traits varchar(700) NOT NULL,
+      details varchar(700)  NOT NULL
    );
    CREATE TABLE classes (
-      "class" SERIAL PRIMARY KEY,
-      traits varchar(700) UNIQUE NOT NULL,
-      details varchar(700) UNIQUE NOT NULL,
+      id SERIAL PRIMARY KEY,
+      name varchar(100) UNIQUE NOT NULL,
+      traits varchar(700)  NOT NULL,
+      details varchar(700)  NOT NULL
    );
    CREATE TABLE backgrounds (
-      "backgrounds" SERIAL PRIMARY KEY,
-      details varchar(700) UNIQUE NOT NULL,
-   );
-   CREATE TABLE characterSheet (
-      "name" SERIAL PRIMARY KEY,
-      race varchar(700) UNIQUE NOT NULL,
-      abilites varchar(250) UNIQUE NOT NULL,
-      dndClass varchar(700) UNIQUE NOT NULL,
-      background varchar(700) UNIQUE NOT NULL,
+      id SERIAL PRIMARY KEY,
+      name varchar(100) UNIQUE NOT NULL,
+      details varchar(700) NOT NULL
+      );
+      CREATE TABLE abilities (
+         id SERIAL PRIMARY KEY,
+         name varchar(255) UNIQUE NOT NULL
+      );
+   CREATE TABLE characterSheets (
+      id SERIAL PRIMARY KEY,
+      name varchar(700) UNIQUE NOT NULL,
+      race_id INTEGER REFERENCES races(id),
+      class_id INTEGER REFERENCES classes(id),
+      ability_id INTEGER REFERENCES abilities(id),
+      backgrounds_id INTEGER REFERENCES backgrounds(id)
+
    ); 
-   CREATE TABLE abilities (
-      ability SERIAL PRIMARY KEY,
-      ability varchar(255) UNIQUE NOT NULL
-   );
    `);
 };
 console.log("Tables built!");
@@ -94,16 +101,16 @@ const createInitialCharacterSheets = async () => {
   }
 };
 const createintitialAbility = async () => {
-   try {
-     //Looping through the "abilites" array from seedData
-     for (const abilityName of abilities) {
-       await createAbility({ability: abilityName});
-     }
-     console.log("created abilities");
-   } catch (error) {
-     throw error;
-   }
- };
+  try {
+    //Looping through the "abilites" array from seedData
+    for (const ability of abilities) {
+      await createAbility( ability);
+    }
+    console.log("created abilities");
+  } catch (error) {
+    throw error;
+  }
+};
 const createInitialBackgrounds = async () => {
   try {
     //Looping through the "backgrounds" array from seedData
@@ -123,11 +130,11 @@ const rebuildDb = async () => {
     await createTables();
 
     console.log("start seeding...");
-    await createInitialCharacterSheets();
     await createInitialCLasses();
     await createInitialRaces();
     await createInitialBackgrounds();
     await createintitialAbility();
+    await createInitialCharacterSheets();
   } catch (error) {
     console.error(error);
   } finally {

@@ -1,16 +1,16 @@
 const client = require('../client')
 
-const createRace = async ({race, traits, details}) => {
+const createRace = async ({name, traits, details}) => {
     try{
         const{
             rows: [races],
         } = await client.query(
             `
-            INSERT INTO RACES(race, traits, details)
-            VALUES(var4)
+            INSERT INTO RACES(name, traits, details)
+            VALUES($1, $2, $3)
             RETURNING *;
             `,
-            [race, traits, details]
+            [name, traits, details]
         )
      return races
     
