@@ -5,7 +5,7 @@ const { createClass } = require("./helpers/classes");
 const { createRace } = require("./helpers/races");
 const { createBackgrounds } = require("./helpers/background");
 const { createAbility } = require("./helpers/abilities");
-const { createCharacterSheet } = require("./helpers/characterSheet");
+const { createCharacterSheets } = require("./helpers/characterSheet");
 
 // const {  } = require("./helpers/");
 
@@ -45,11 +45,14 @@ const createTables = async () => {
    );
    CREATE TABLE characterSheet (
       "name" SERIAL PRIMARY KEY,
-      raceId varchar(700) UNIQUE NOT NULL,
+      race varchar(700) UNIQUE NOT NULL,
       abilites varchar(250) UNIQUE NOT NULL,
-      classId varchar(700) UNIQUE NOT NULL,
-      backgroundId varchar(700) UNIQUE NOT NULL,
-
+      dndClass varchar(700) UNIQUE NOT NULL,
+      background varchar(700) UNIQUE NOT NULL,
+   ); 
+   CREATE TABLE abilities (
+      ability SERIAL PRIMARY KEY,
+      ability varchar(255) UNIQUE NOT NULL
    );
    `);
 };
@@ -79,11 +82,11 @@ const createInitialCLasses = async () => {
     throw error;
   }
 };
-const createInitialCharacterSheet = async () => {
+const createInitialCharacterSheets = async () => {
   try {
     //Looping through the "characterSheets" array from seedData
     for (const characterSheet of characterSheets) {
-      await createCharacterSheet(characterSheet);
+      await createCharacterSheets(characterSheet);
     }
     console.log("created characterSheets");
   } catch (error) {
@@ -93,8 +96,8 @@ const createInitialCharacterSheet = async () => {
 const createintitialAbility = async () => {
    try {
      //Looping through the "abilites" array from seedData
-     for (const ability of abilities) {
-       await createCharacterSheet({ability: abilityName});
+     for (const abilityName of abilities) {
+       await createAbility({ability: abilityName});
      }
      console.log("created abilities");
    } catch (error) {
@@ -120,7 +123,7 @@ const rebuildDb = async () => {
     await createTables();
 
     console.log("start seeding...");
-    await createInitialCharacterSheet();
+    await createInitialCharacterSheets();
     await createInitialCLasses();
     await createInitialRaces();
     await createInitialBackgrounds();
