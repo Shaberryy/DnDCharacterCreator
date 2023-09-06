@@ -3,7 +3,7 @@ const client = require('../client')
 const createCharacterSheets = async ({name, raceId, classId, backgroundId}) => {
     try{
         const{
-            rows: [characterSheets],
+            rows: [charactersheets],
         } = await client.query(
             `
             INSERT INTO CHARACTERSHEETS(name, raceId, classId, backgroundId)
@@ -12,7 +12,7 @@ const createCharacterSheets = async ({name, raceId, classId, backgroundId}) => {
             `,
             [name, raceId, classId, backgroundId]
         )
-     return characterSheets
+     return charactersheets
     
      }catch (error){
         throw error

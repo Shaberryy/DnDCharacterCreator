@@ -94,7 +94,7 @@ const createintitialAbility = async () => {
    try {
      //Looping through the "abilites" array from seedData
      for (const ability of abilities) {
-       await createCharacterSheet(ability);
+       await createCharacterSheet({ability: abilityName});
      }
      console.log("created abilities");
    } catch (error) {
