@@ -1,7 +1,7 @@
 // table functions
 const client = require("./client");
 
-const { createClass } = require("./helpers/class");
+const { createClass } = require("./helpers/classes");
 const { createRace } = require("./helpers/races");
 const { createBackgrounds } = require("./helpers/background");
 const { createAbility } = require("./helpers/abilities");

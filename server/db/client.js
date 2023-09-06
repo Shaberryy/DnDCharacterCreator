@@ -1,6 +1,6 @@
 const {Client } = require('pg')
 
-const charSheet = 'charSheet'
-const client = new Client(`postgress://localhost:5432/${charSheet}`)
+const characterSheet = 'characterSheet'
+const client = new Client(`postgress://localhost:5432/${characterSheet}`)
 
 module.exports = client

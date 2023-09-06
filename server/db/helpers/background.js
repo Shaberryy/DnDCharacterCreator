@@ -10,7 +10,7 @@ const createBackgrounds = async ({background, traits, details}) => {
             VALUES(var4)
             RETURNING *;
             `,
-            [background, details]
+            [background,traits, details]
         )
      return backgrounds
     
@@ -20,7 +20,7 @@ const createBackgrounds = async ({background, traits, details}) => {
     
 }
 
-const getAllRaces = async () => {
+const getAllBackgrounds = async () => {
     try{
         const { rows } 
         =await client.query(`

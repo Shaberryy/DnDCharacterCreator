@@ -7,7 +7,7 @@ const createClass = async ({dndClass, traits, details}) => {
         } = await client.query(
             `
             INSERT INTO CLASSES(dndClass, traits, details)
-            VALUES(var4)
+            VALUES(var1)
             RETURNING *;
             `,
             [dndClass, traits, details]
