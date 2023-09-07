@@ -14,17 +14,35 @@ router.get('/', async (req, res, next) => {
 });
 
 // get by id
-// router.get('/:characterSheetId', async (req, res, next) => {
-//     try{
-//         const characterSheets = await getAllCharacterSheets();
-//         res.send(characterSheets);
-//     }catch (error){
-//         next(error);
-//     }
-// });
+router.get('/:id', async (req, res, next) => {
+    try{
+        const characterSheets = await getAllCharacterSheets();
+        res.send(characterSheets);
+    }catch (error){
+        next(error);
+    }
+});
+// post
+router.post('/', async (req, res, next) => {
+    try {
+        const characterSheets = await createCharacterSheets(req.body);
+        res.send(characterSheets);
+    } catch (err) {
+        next(err);
+    }
+});
+// put
+router.put('/:id', async (req, res, next) => {
+    try {
+        const characterSheets = await updateCharacterSheets(req.params.id, req.body);
+        res.send(characterSheets);
+    } catch (err) {
+        next(err);
+    }
+});
 
 // patch
-// router.patch('/:characterSheetId', requireUser, async (req, res, next) => {
+// router.patch('/:id', requireUser, async (req, res, next) => {
 //     try {
 //         const characterSheet = await updateCharacterSheet(req.params.characterSheetId, req.body);
 //         res.send(characterSheet);
@@ -33,16 +51,16 @@ router.get('/', async (req, res, next) => {
 //     }
 // });
 // delete
-// router.delete('/:characterSheetId', requireUser, async (req, res, next) => {
-//     try {
-//         const characterSheet = await deleteCharacterSheetId(req.params.characterSheetIdId);
-//         res.send(characterSheet);
-//     } catch (error) {
-//         next(error);
-//     }
-// });
-// // export
-module.exports = router
+router.delete('/:id', requireUser, async (req, res, next) => {
+    try {
+        const characterSheet = await deleteCharacterSheet(req.params.id);
+        res.send(characterSheet);
+    } catch (error) {
+        next(error);
+    }
+});
+// export
+module.exports = router;
 
 // const data = require("./seedData");
 // // get all

@@ -1,5 +1,6 @@
 const express = require('express');
-const router = express.Router();
+const app = express();
+const PORT = 8080;
 
 router.get('/charactersheet', (req, res, next) =>{
     res.send('OK');
