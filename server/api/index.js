@@ -1,11 +1,12 @@
 const express = require('express');
-const app = express();
-const PORT = 8080;
+const router = express.Router();
 
-router.get('/charactersheet', (req, res, next) =>{
+router.get('/health', (req, res, next) =>{
     res.send('OK');
 });
-
-router.use('/characterSheet', require('./characterSheet'));
+// // character sheet api
+// router.use('/characterSheet', require('./characterSheet'));
+// // classes api
+// router.use('/classes', require('./classes'));
 
 module.exports = router;

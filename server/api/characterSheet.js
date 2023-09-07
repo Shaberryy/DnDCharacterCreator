@@ -1,7 +1,7 @@
 
 // const { characterSheets } = require("../db/seedData");
 
-const {getAllCharacterSheets} = require('../db/helpers');
+const {getAllCharacterSheets} = require('../db/helpers/characterSheet');
 
 // get character marcey
 router.get('/', async (req, res, next) => {
@@ -42,14 +42,14 @@ router.put('/:id', async (req, res, next) => {
 });
 
 // patch
-// router.patch('/:id', requireUser, async (req, res, next) => {
-//     try {
-//         const characterSheet = await updateCharacterSheet(req.params.characterSheetId, req.body);
-//         res.send(characterSheet);
-//     } catch (error) {
-//         next(error);
-//     }
-// });
+router.patch('/:id', requireUser, async (req, res, next) => {
+    try {
+        const characterSheet = await updateCharacterSheet(req.params.characterSheetId, req.body);
+        res.send(characterSheet);
+    } catch (error) {
+        next(error);
+    }
+});
 // delete
 router.delete('/:id', requireUser, async (req, res, next) => {
     try {

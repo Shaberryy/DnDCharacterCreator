@@ -1,7 +1,10 @@
-module.exports = {
-// require('./characterSheet')
-}
+const express = require('express');
+const app = express();
 // exports objects from heklper
+const PORT = 8080;
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
 // init cors 
 const cors = require('cors');
@@ -16,3 +19,7 @@ app.get('/', (req, res) => {
 
 // router api 
 app.use('/api', require('./api'));
+
+app.listen(PORT, ( )=> {
+    console/log(`Server is listening on port ${PORT}`);
+})
