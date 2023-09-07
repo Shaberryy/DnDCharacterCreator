@@ -1,16 +1,16 @@
 const client = require('../client')
 
-const createClass = async ({dndClass, traits, details}) => {
+const createClass = async ({name, traits, details}) => {
     try{
         const{
             rows: [classes],
         } = await client.query(
             `
-            INSERT INTO CLASSES(dndClass, traits, details)
-            VALUES(var1)
+            INSERT INTO CLASSES(name, traits, details)
+            VALUES($1, $2, $3)
             RETURNING *;
             `,
-            [dndClass, traits, details]
+            [name, traits, details]
         )
      return classes
     

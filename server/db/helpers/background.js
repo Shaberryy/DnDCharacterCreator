@@ -1,16 +1,16 @@
 const client = require('../client')
 
-const createBackgrounds = async ({background, traits, details}) => {
+const createBackgrounds = async ({name,traits, details}) => {
     try{
         const{
             rows: [backgrounds],
         } = await client.query(
             `
-            INSERT INTO BACKGROUNDS(background, details)
-            VALUES(var4)
+            INSERT INTO BACKGROUNDS(name,traits ,details)
+            VALUES($1, $2, $3)
             RETURNING *;
             `,
-            [background,traits, details]
+            [name,traits, details]
         )
      return backgrounds
     
