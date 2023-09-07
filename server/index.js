@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
 // exports objects from heklper
-const PORT = 8080;
+const PORT = 8081;
+
+// const morgan = require('morgan');
+// app.use(morgan('dev'));
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -20,6 +23,6 @@ app.get('/', (req, res) => {
 // router api 
 app.use('/api', require('./api'));
 
-app.listen(PORT, ( )=> {
+app.listen(PORT, ()=> {
     console.log(`Server is listening on port ${PORT}`);
-})
+});
