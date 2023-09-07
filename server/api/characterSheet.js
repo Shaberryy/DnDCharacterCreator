@@ -1,5 +1,8 @@
 
-// const { characterSheets } = require("../db/seedData");
+// const { characterSheets } = require("../db/seedData/");
+const express = require('express');
+
+const router = express.Router();
 
 const {getAllCharacterSheets} = require('../db/helpers/characterSheet');
 
@@ -42,7 +45,7 @@ router.put('/:id', async (req, res, next) => {
 });
 
 // patch
-router.patch('/:id', requireUser, async (req, res, next) => {
+router.patch('/:id', async (req, res, next) => {
     try {
         const characterSheet = await updateCharacterSheet(req.params.characterSheetId, req.body);
         res.send(characterSheet);
@@ -51,7 +54,7 @@ router.patch('/:id', requireUser, async (req, res, next) => {
     }
 });
 // delete
-router.delete('/:id', requireUser, async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
     try {
         const characterSheet = await deleteCharacterSheet(req.params.id);
         res.send(characterSheet);
