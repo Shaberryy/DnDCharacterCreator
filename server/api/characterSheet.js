@@ -1,10 +1,7 @@
-const express = require('express');
-const router = express.Router();
+
 // const { characterSheets } = require("../db/seedData");
 
-const {getAllCharacterSheets} = require('../db');
-const { requireUser } = require('./utils');
-// const app = express();
+const {getAllCharacterSheets} = require('../db/helpers');
 
 // get character marcey
 router.get('/', async (req, res, next) => {
@@ -17,34 +14,34 @@ router.get('/', async (req, res, next) => {
 });
 
 // get by id
-router.get('/:characterSheetId', async (req, res, next) => {
-    try{
-        const characterSheets = await getAllCharacterSheets();
-        res.send(characterSheets);
-    }catch (error){
-        next(error);
-    }
-});
+// router.get('/:characterSheetId', async (req, res, next) => {
+//     try{
+//         const characterSheets = await getAllCharacterSheets();
+//         res.send(characterSheets);
+//     }catch (error){
+//         next(error);
+//     }
+// });
 
 // patch
-router.patch('/:characterSheetId', requireUser, async (req, res, next) => {
-    try {
-        const characterSheet = await updateCharacterSheet(req.params.characterSheetId, req.body);
-        res.send(characterSheet);
-    } catch (error) {
-        next(error);
-    }
-});
+// router.patch('/:characterSheetId', requireUser, async (req, res, next) => {
+//     try {
+//         const characterSheet = await updateCharacterSheet(req.params.characterSheetId, req.body);
+//         res.send(characterSheet);
+//     } catch (error) {
+//         next(error);
+//     }
+// });
 // delete
-router.delete('/:characterSheetId', requireUser, async (req, res, next) => {
-    try {
-        const characterSheet = await deleteCharacterSheetId(req.params.characterSheetIdId);
-        res.send(characterSheet);
-    } catch (error) {
-        next(error);
-    }
-});
-// export
+// router.delete('/:characterSheetId', requireUser, async (req, res, next) => {
+//     try {
+//         const characterSheet = await deleteCharacterSheetId(req.params.characterSheetIdId);
+//         res.send(characterSheet);
+//     } catch (error) {
+//         next(error);
+//     }
+// });
+// // export
 module.exports = router
 
 // const data = require("./seedData");
