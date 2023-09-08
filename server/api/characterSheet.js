@@ -4,8 +4,8 @@ const express = require('express');
 
 const router = express.Router();
 
-const {getAllCharacterSheets} = require('../db/helpers/characterSheet');
-
+// const {getAllCharacterSheets, } = require('../db/helpers/characterSheet');
+// 
 // get character marcey
 router.get('/', async (req, res, next) => {
     try{
@@ -19,7 +19,7 @@ router.get('/', async (req, res, next) => {
 // get by id
 router.get('/:id', async (req, res, next) => {
     try{
-        const characterSheets = await getAllCharacterSheets();
+        const characterSheets = await getCharacterSheetsById();
         res.send(characterSheets);
     }catch (error){
         next(error);

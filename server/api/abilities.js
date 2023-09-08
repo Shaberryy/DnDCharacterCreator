@@ -1,5 +1,8 @@
 // express
-const data = require("./seedData");
+const express = require('express');
+
+const router = express.Router();
+
 // get all
 async function getAllAbilities() {
   try {

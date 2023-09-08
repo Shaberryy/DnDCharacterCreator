@@ -6,7 +6,7 @@ const createBackgrounds = async ({name,traits, details}) => {
             rows: [backgrounds],
         } = await client.query(
             `
-            INSERT INTO BACKGROUNDS(name,traits ,details)
+            INSERT INTO BACKGROUNDS(name,traits, details)
             VALUES($1, $2, $3)
             RETURNING *;
             `,
