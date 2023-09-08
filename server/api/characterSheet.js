@@ -16,7 +16,7 @@ router.get("/", async (req, res, next) => {
 });
 
 // get by id
-router.get("/character:id", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const characterSheets = await getCharacterSheetsById();
     res.send(characterSheets);
