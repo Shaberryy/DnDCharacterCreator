@@ -1,5 +1,5 @@
 const client = require("../client");
-const util = require("../util");
+// const util = require("../util");
 
 const getAllCharacterSheets = async () => {
   try {
@@ -54,30 +54,30 @@ const createCharacterSheets = async ({
   }
 };
 
-async function updateCharacterSheet(characterSheetId, fields) {
-  try {
-    const toUpdate = {};
-    for (let column in fields) {
-      if (fields[column] !== undefined) toUpdate[column] = fields[column];
-    }
-    let characterSheet;
-    if (util.dbFields(toUpdate).insert.length > 0) {
-      const { rows } = await client.query(
-        `
-                UPDATE characterSheets
-                SET ${util.dbFields(toUpdate).insert}
-                WHERE "characterSheetId"=${characterSheetId}
-                RETURNING *;
-                `,
-        Object.values(toUpdate)
-      );
-      characterSheet = rows[0];
-    }
-    return characterSheet;
-  } catch (error) {
-    throw error;
-  }
-}
+// async function updateCharacterSheet(characterSheetId, fields) {
+//   try {
+//     const toUpdate = {};
+//     for (let column in fields) {
+//       if (fields[column] !== undefined) toUpdate[column] = fields[column];
+//     }
+//     let characterSheet;
+//     if (util.dbFields(toUpdate).insert.length > 0) {
+//       const { rows } = await client.query(
+//         `
+//                 UPDATE characterSheets
+//                 SET ${util.dbFields(toUpdate).insert}
+//                 WHERE "characterSheetId"=${characterSheetId}
+//                 RETURNING *;
+//                 `,
+//         Object.values(toUpdate)
+//       );
+//       characterSheet = rows[0];
+//     }
+//     return characterSheet;
+//   } catch (error) {
+//     throw error;
+//   }
+// }
 
 async function deleteCharacterSheet(characterSheetId) {
   try {
@@ -99,7 +99,7 @@ async function deleteCharacterSheet(characterSheetId) {
 module.exports = {
   createCharacterSheets,
   getAllCharacterSheets,
-  updateCharacterSheet,
+//   updateCharacterSheet,
   getCharacterSheetById,
   deleteCharacterSheet,
 };

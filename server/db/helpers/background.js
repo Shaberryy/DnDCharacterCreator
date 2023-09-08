@@ -20,7 +20,7 @@ const getBackgroundById = async (backgroundId) => {
       } = await client.query(
         `
               SELECT *
-              FROM background
+              FROM backgrounds
               WHERE "backgroundId" =${backgroundId}
               `
       );

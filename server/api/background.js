@@ -8,63 +8,62 @@ const {getAllBackgrounds, createBackgrounds, getBackgroundById,  } = require('..
 // get backgrounds
 router.get("/", async (req, res, next) => {
   try {
-    const backgrounds = await 
-    getAllBackgrounds();
+    const backgrounds = await getAllBackgrounds();
     res.send(backgrounds);
   } catch (error) {
     next(error);
   }
 });
 
-// get by id
-router.get("/:id", async (req, res, next) => {
-  try {
-    const backgrounds = await getBackgroundById();
-    res.send(backgrounds);
-  } catch (error) {
-    next(error);
-  }
-});
-// post
-router.post("/", async (req, res, next) => {
-  try {
-    const backgrounds = await createBackgrounds(req.body);
-    res.send(backgrounds);
-  } catch (err) {
-    next(err);
-  }
-});
-// put
-router.put("/:id", async (req, res, next) => {
-  try {
-    const backgrounds = await updateBackgrounds(req.params.id, req.body);
-    res.send(backgrounds);
-  } catch (err) {
-    next(err);
-  }
-});
+// // get by id
+// router.get("/:id", async (req, res, next) => {
+//   try {
+//     const backgrounds = await getBackgroundById();
+//     res.send(backgrounds);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+// // post
+// router.post("/", async (req, res, next) => {
+//   try {
+//     const backgrounds = await createBackgrounds(req.body);
+//     res.send(backgrounds);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
+// // put
+// router.put("/:id", async (req, res, next) => {
+//   try {
+//     const backgrounds = await updateBackgrounds(req.params.id, req.body);
+//     res.send(backgrounds);
+//   } catch (err) {
+//     next(err);
+//   }
+// });
 
-// patch
-router.patch("/:id", async (req, res, next) => {
-  try {
-    const background = await updateBackground(
-      req.params.backgroundId,
-      req.body
-    );
-    res.send(background);
-  } catch (error) {
-    next(error);
-  }
-});
-// delete
-router.delete("/:id", async (req, res, next) => {
-  try {
-    const background = await deleteBackground(req.params.id);
-    res.send(background);
-  } catch (error) {
-    next(error);
-  }
-});
+// // patch
+// router.patch("/:id", async (req, res, next) => {
+//   try {
+//     const background = await updateBackground(
+//       req.params.backgroundId,
+//       req.body
+//     );
+//     res.send(background);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+// // delete
+// router.delete("/:id", async (req, res, next) => {
+//   try {
+//     const background = await deleteBackground(req.params.id);
+//     res.send(background);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 // export
 module.exports = router;
 
