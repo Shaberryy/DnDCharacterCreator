@@ -1,9 +1,9 @@
-// const { characterSheets } = require("../db/seedData/");
+// const { backgrounds } = require("../db/seedData/");
 const express = require("express");
 
 const router = express.Router();
 
-const {getAllBackgrounds, createBackgrounds, } = require('../db/helpers/background');
+const {getAllBackgrounds, createBackgrounds, getBackgroundById,  } = require('../db/helpers/background');
 
 // get backgrounds
 router.get("/", async (req, res, next) => {
@@ -19,7 +19,7 @@ router.get("/", async (req, res, next) => {
 // get by id
 router.get("/:id", async (req, res, next) => {
   try {
-    const backgrounds = await getBackgroundsById();
+    const backgrounds = await getBackgroundById();
     res.send(backgrounds);
   } catch (error) {
     next(error);
