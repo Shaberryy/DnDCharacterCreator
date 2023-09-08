@@ -1,66 +1,71 @@
-
 // const { characterSheets } = require("../db/seedData/");
-const express = require('express');
+const express = require("express");
 
 const router = express.Router();
 
 // const {getAllCharacterSheets, } = require('../db/helpers/characterSheet');
-// 
+//
 // get character marcey
-router.get('/', async (req, res, next) => {
-    try{
-        const characterSheets = await getAllCharacterSheets();
-        res.send(characterSheets);
-    }catch(error){
-        next(error);
-    }
+router.get("/", async (req, res, next) => {
+  try {
+    const characterSheets = await getAllCharacterSheets();
+    res.send(characterSheets);
+  } catch (error) {
+    next(error);
+  }
 });
 
 // get by id
-router.get('/:id', async (req, res, next) => {
-    try{
-        const characterSheets = await getCharacterSheetsById();
-        res.send(characterSheets);
-    }catch (error){
-        next(error);
-    }
+router.get("/:id", async (req, res, next) => {
+  try {
+    const characterSheets = await getCharacterSheetsById();
+    res.send(characterSheets);
+  } catch (error) {
+    next(error);
+  }
 });
 // post
-router.post('/', async (req, res, next) => {
-    try {
-        const characterSheets = await createCharacterSheets(req.body);
-        res.send(characterSheets);
-    } catch (err) {
-        next(err);
-    }
+router.post("/", async (req, res, next) => {
+  try {
+    const characterSheets = await createCharacterSheets(req.body);
+    res.send(characterSheets);
+  } catch (err) {
+    next(err);
+  }
 });
 // put
-router.put('/:id', async (req, res, next) => {
-    try {
-        const characterSheets = await updateCharacterSheets(req.params.id, req.body);
-        res.send(characterSheets);
-    } catch (err) {
-        next(err);
-    }
+router.put("/:id", async (req, res, next) => {
+  try {
+    const characterSheets = await updateCharacterSheets(
+      req.params.id,
+      req.body
+    );
+    res.send(characterSheets);
+  } catch (err) {
+    next(err);
+  }
 });
 
 // patch
-router.patch('/:id', async (req, res, next) => {
-    try {
-        const characterSheet = await updateCharacterSheet(req.params.characterSheetId, req.body);
-        res.send(characterSheet);
-    } catch (error) {
-        next(error);
-    }
+router.patch("/:id", async (req, res, next) => {
+  try {
+    const characterSheet = await updateCharacterSheet(
+      req.params.characterSheetId,
+      req.body
+    );
+    res.send(characterSheet);
+  } catch (error) {
+    next(error);
+  }
 });
 // delete
-router.delete('/:id', async (req, res, next) => {
-    try {
-        const characterSheet = await deleteCharacterSheet(req.params.id);
-        res.send(characterSheet);
-    } catch (error) {
-        next(error);
-    }
+router.delete("/:id", async (req, res, next) => {
+  try {
+    const characterSheet = await deleteCharacterSheet(req.params.id);
+    res.send(characterSheet);
+  } catch (error) {
+    next(error);
+  }
 });
 // export
 module.exports = router;

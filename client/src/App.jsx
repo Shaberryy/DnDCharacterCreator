@@ -1,14 +1,14 @@
+import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import { characterSheets } from '../../server/db/seedData';
-import {useState, useEffect} from 'react';
-import { fetchAllCharactersheets } from '/../db/helpers/characterSheet';
+
+import CharacterSheet from './components/Builder';
+import NavBar from './components/Navbar';
 
 function App() {
   // useState
   // const [allCharacterSheets, setAllCharacterSheets] = useState([]);
   const [setAllCharacterSheets] = useState([]);
-
-  // useEffect
   useEffect(() => {
     async function fetchData() {
       const characterSheets = await fetchAllCharactersheets();
@@ -21,8 +21,10 @@ function App() {
 
   return (
     <>
-    <h1>hi</h1>
-      {/* <Builder setAllCharacterSheets={allCharacterSheets} /> */}
+    <NavBar/>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
     </>
   )
 }
