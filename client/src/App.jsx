@@ -1,32 +1,30 @@
-import { useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import './App.css';
+import "./App.css";
+import { useState, useEffect } from "react";
 
-import CharacterSheet from './components/Builder';
-import NavBar from './components/Navbar';
+import Characters from "./components/Builder";
+import NavBar from "./components/Navbar";
+// import NavBar from "./components/Navbar";
 
 function App() {
-  // useState
-  // const [allCharacterSheets, setAllCharacterSheets] = useState([]);
-  const [setAllCharacterSheets] = useState([]);
+  useState;
+  const [allCharacterSheets, setAllCharacterSheets] = useState([]);
+
   useEffect(() => {
     async function fetchData() {
-      const characterSheets = await fetchAllCharactersheets();
+      const characterSheets = await fetchAllCharactersheet();
       setAllCharacterSheets(characterSheets);
       console.log(characterSheets);
       return characterSheets;
     }
     fetchData();
-  },[]);
+  }, []);
 
   return (
     <>
     <NavBar/>
-    <Routes>
-      <Route path="/" element={<Home />} />
-    </Routes>
+      <Characters allCharacterSheets={allCharacterSheets}/>
     </>
-  )
+  );
 }
 
 export default App;

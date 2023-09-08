@@ -3,7 +3,7 @@ const express = require("express");
 
 const router = express.Router();
 
-// const {getAllCharacterSheets, } = require('../db/helpers/characterSheet');
+const {getAllCharacterSheets,createCharacterSheets } = require('../db/helpers/characterSheet');
 //
 // get character marcey
 router.get("/", async (req, res, next) => {
@@ -16,7 +16,7 @@ router.get("/", async (req, res, next) => {
 });
 
 // get by id
-router.get("/:id", async (req, res, next) => {
+router.get("/character:id", async (req, res, next) => {
   try {
     const characterSheets = await getCharacterSheetsById();
     res.send(characterSheets);
@@ -28,7 +28,20 @@ router.get("/:id", async (req, res, next) => {
 router.post("/", async (req, res, next) => {
   try {
     const characterSheets = await createCharacterSheets(req.body);
+    const existingCharacterSheet = await getCharacterSheetsById(characterSheet.id);
+  if(existingCharacterSheet){
     res.send(characterSheets);
+  }else {
+    const newCharacterSheet = await createCharacterSheets(characterSheets);
+    if (newCharacterSheet){
+      res.send(newCharacterSheet);
+    }else{
+      next({
+        name: 'CreateCharacterSheetError',
+        message: 'Error creating Character Sheet'
+      });
+    }
+  }
   } catch (err) {
     next(err);
   }
