@@ -12,7 +12,7 @@ const getAllCharacterSheets = async () => {
     throw error;
   }
 };
-//
+//get by id
 const getCharacterSheetById = async (characterSheetId) => {
   try {
     const {

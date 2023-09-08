@@ -1,4 +1,6 @@
 const client = require('../client')
+// const util = require("../util");
+
 
 async function createAbility ({ name }) {
     try {
@@ -16,4 +18,37 @@ async function createAbility ({ name }) {
     }
 }
 
-module.exports = { createAbility }
+const getAllAblities = async () => {
+    try{
+        const { rows } 
+        =await client.query(`
+        SELECT *
+        FROM abilities;
+        `)
+     return rows   
+    }catch (error) {
+        throw error
+    }
+}
+
+
+
+const getAbilityById = async (abilityId) => {
+    try {
+      const {
+        rows: [ability],
+      } = await client.query(
+        `
+              SELECT *
+              FROM ability
+              WHERE "abilityId" =${abilityId}
+              `
+      );
+      return ability;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+
+module.exports = { createAbility, getAbilityById , getAllAblities}

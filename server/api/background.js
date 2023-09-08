@@ -3,13 +3,13 @@ const express = require("express");
 
 const router = express.Router();
 
-// const {getAllBackgrounds, createBackgrounds, } = require('../db/helpers');
+const {getAllBackgrounds, createBackgrounds, } = require('../db/helpers/background');
 
 // get backgrounds
 router.get("/", async (req, res, next) => {
   try {
     const backgrounds = await 
-    getAllBackgronds();
+    getAllBackgrounds();
     res.send(backgrounds);
   } catch (error) {
     next(error);

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// const {getAllClasses} = require("../db/helpers/classes");
+const {getAllClasses} = require("../db/helpers/classes");
 
 // get all
 router.get('/', async (req, res, next) => {

@@ -1,5 +1,7 @@
 const client = require('../client')
 
+
+
 const createClass = async ({name, traits, details}) => {
     try{
         const{
