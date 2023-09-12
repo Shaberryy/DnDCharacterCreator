@@ -13,6 +13,6 @@ router.use('/races', require('./races'));
 // background
 router.use('/background', require('./background'));
 // abilities
-// router.use('/abilities', require('./ablilites'));
+router.use('/abilities', require('./ablilites'));
 
 module.exports = router;
