@@ -9,7 +9,7 @@ router.use('/characterSheet', require('./characterSheet'));
 // // classes api
 // router.use('/classes', require('./classes'));
 // races api
-// router.use('/races', require('./races'));
+router.use('/races', require('./races'));
 // background
 router.use('/background', require('./background'));
 // abilities

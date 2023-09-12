@@ -3,7 +3,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const {getAllBackgrounds  } = require('../db/helpers/background');
+const {getAllBackgrounds, getBackgroundById, createBackgrounds, updateBackgrounds  } = require('../db/helpers/background');
 // const {getAllBackgrounds, createBackgrounds, getBackgroundById,  } = require('../db/helpers/background');
 
 // get backgrounds
@@ -17,32 +17,35 @@ router.get("/", async (req, res, next) => {
 });
 
 // // get by id
-// router.get("/:id", async (req, res, next) => {
-//   try {
-//     const backgrounds = await getBackgroundById();
-//     res.send(backgrounds);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
+router.get("/:id", async (req, res, next) => {
+  try {
+    const backgrounds = await getBackgroundById();
+    res.send(backgrounds);
+  } catch (error) {
+    next(error);
+  }
+});
 // // post
-// router.post("/", async (req, res, next) => {
-//   try {
-//     const backgrounds = await createBackgrounds(req.body);
-//     res.send(backgrounds);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+router.post("/", async (req, res, next) => {
+  try {
+    const backgrounds = await createBackgrounds(req.body);
+    res.send(backgrounds);
+  } catch (err) {
+    next(err);
+  }
+});
+// BROKEN
+
 // // put
-// router.put("/:id", async (req, res, next) => {
-//   try {
-//     const backgrounds = await updateBackgrounds(req.params.id, req.body);
-//     res.send(backgrounds);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+router.put("/:id", async (req, res, next) => {
+  try {
+    const backgrounds = await updateBackgrounds(req.params.id, req.body);
+    res.send(backgrounds);
+  } catch (err) {
+    next(err);
+  }
+});
+// BROKEN
 
 // // patch
 // router.patch("/:id", async (req, res, next) => {
