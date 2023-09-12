@@ -1,28 +1,36 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { useState, useEffect } from "react";
-
+import Home from "./components/Home";
+// import { useState, useEffect } from "react";
 import Characters from "./components/Builder";
 import NavBar from "./components/Navbar";
-// import NavBar from "./components/Navbar";
 
 function App() {
-  useState;
-  const [allCharacterSheets, setAllCharacterSheets] = useState([]);
+  // useState;
+  // const [allCharacterSheets, setAllCharacterSheets] = useState([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      const characterSheets = await fetchAllCharactersheet();
-      setAllCharacterSheets(characterSheets);
-      console.log(characterSheets);
-      return characterSheets;
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const characterSheets = await fetchAllCharactersheet();
+  //     setAllCharacterSheets(characterSheets);
+  //     console.log(characterSheets);
+  //     return characterSheets;
+  //   }
+  //   fetchData();
+  // }, []);
 
   return (
     <>
+    <BrowserRouter>
     <NavBar/>
-      <Characters allCharacterSheets={allCharacterSheets}/>
+    
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/builder" element={<Characters/>}/>
+    </Routes>
+
+      {/* <Characters allCharacterSheets={allCharacterSheets}/> */}
+    </BrowserRouter>
     </>
   );
 }

@@ -4,8 +4,10 @@ export default function NavBar(){
     return(
         <>
         <h1>navbar</h1>
-        <div>
-            <Link to='/home'>See all Characters</Link>
+        <div className="links">
+            {/* <Link to='/home'>See all Characters</Link> */}
+            <Link to='/builder'>Create</Link>
+            <Link to='/'>Home page</Link>
         </div>
         </>
     )
