@@ -18,7 +18,7 @@ const createRace = async ({name, traits, details}) => {
         throw error
      }
     
-}
+};
 
 const getAllRaces = async () => {
     try{
@@ -31,7 +31,8 @@ const getAllRaces = async () => {
     }catch (error) {
         throw error
     }
-}
+};
 
 
+// module.exports = { getAllRaces}
 module.exports = { createRace, getAllRaces}

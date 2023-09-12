@@ -1,5 +1,36 @@
 const client = require('../client')
 
+// get
+const getAllClasses = async () => {
+    try{
+        const { rows } 
+        =await client.query(`
+        SELECT *
+        FROM classes;
+        `)
+     return rows   
+    }catch (error) {
+        throw error
+    }
+};
+
+const getClassesById = async (classId) => {
+    try {
+      const {
+        rows: [classs],
+      } = await client.query(
+        `
+              SELECT *
+              FROM classes
+              WHERE "classId" =${classId}
+              `
+      );
+      return classs;
+    } catch (error) {
+      throw error;
+    }
+  };
+
 const createClass = async ({name, traits, details}) => {
     try{
         const{
@@ -18,20 +49,5 @@ const createClass = async ({name, traits, details}) => {
         throw error
      }
     
-}
-
-const getAllClasses = async () => {
-    try{
-        const { rows } 
-        =await client.query(`
-        SELECT *
-        FROM classes;
-        `)
-     return rows   
-    }catch (error) {
-        throw error
-    }
-}
-
-
-module.exports = { createClass, getAllClasses}
+};
+module.exports = { createClass, getAllClasses, getClassesById}
