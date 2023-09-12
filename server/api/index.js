@@ -7,7 +7,7 @@ router.get('/health', (req, res, next) =>{
 // // character sheet api
 router.use('/characterSheet', require('./characterSheet'));
 // // classes api
-// router.use('/classes', require('./classes'));
+router.use('/classes', require('./classes'));
 // races api
 router.use('/races', require('./races'));
 // background
