@@ -9,6 +9,7 @@ export default function NavBar(){
             <Link to='/builder'>Create</Link>
             <br/>
             <Link to='/'>Home page</Link>
+            <Link to='/character'>Characters</Link>
         </div>
         </>
     )

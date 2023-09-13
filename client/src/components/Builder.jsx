@@ -1,5 +1,5 @@
 // export default function CharacterSheet({ characterSheet })
-import characterSheets from "./Characters";
+// import characterSheets from "./AllCharacters";
 // import choose from "./choose.png"
 export default function CharacterSheet() {
   return (
@@ -18,7 +18,9 @@ export default function CharacterSheet() {
         <a  className="roller" href="https://rgbstudios.org/projects/dnd-dice/character-roller?r=">
           Ability Roller!
         </a>
-        <h3>There are six abilities which provide a quick description of every creature's physical and mental characteristics: Strength, measuring physical power. Dexterity, measuring agility. Constitution, measuring endurance. Intelligence, measuring reasoning and memory.</h3>
+        <h3>There are six abilities which provide a quick description of every creature's physical and mental characteristics: Strength, measuring physical power. Dexterity, measuring agility. Constitution, measuring endurance. Intelligence, measuring reasoning and memory.
+        Wisdom, measuring perception and Insight. Charisma, measuring force of personality.
+        </h3>
       </div>
     </>
   );
