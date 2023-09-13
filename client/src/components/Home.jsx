@@ -1,11 +1,13 @@
 export default function Home(){
     return(
         <> 
-        <h1>Welcome NERDS</h1>
-        <p>this is a Dungeons and Dragons Character Builder!
-        </p>
+        <div className="details">
+        <h1 className="heading">Welcome Nerds! </h1>
+        <h3>this is a Dungeons and Dragons Character Builder!
+        </h3>
         <br/>
-        <p>Here you can choose from multiple different classes, races and backgrounds to create the character of your imagination!</p>
+        <h3>Here you can choose from multiple different classes, races and backgrounds to create the character of your own imagination!</h3>
+        </div>
         </>
         )
 }

@@ -7,6 +7,7 @@ export default function NavBar(){
         <div className="links">
             {/* <Link to='/home'>See all Characters</Link> */}
             <Link to='/builder'>Create</Link>
+            <br/>
             <Link to='/'>Home page</Link>
         </div>
         </>
