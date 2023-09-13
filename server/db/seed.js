@@ -81,7 +81,7 @@ const createInitialRaces = async () => {
 };
 const createInitialCLasses = async () => {
   try {
-    //Looping through the "races" array from seedData
+    //Looping through the "classes" array from seedData
     for (const dndClass of classes) {
       await createClass(dndClass);
     }
