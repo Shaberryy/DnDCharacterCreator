@@ -3,8 +3,8 @@ const express = require("express");
 
 const router = express.Router();
 
-// const {getAllCharacterSheets,createCharacterSheets } = require('../db/helpers/characterSheet');
-const {getAllCharacterSheets } = require('../db/helpers/characterSheet');
+const {getAllCharacterSheets,createCharacterSheets } = require('../db/helpers/characterSheet');
+// const {getAllCharacterSheets } = require('../db/helpers/characterSheet');
 //
 // get character marcey
 router.get("/", async (req, res, next) => {
@@ -17,48 +17,48 @@ router.get("/", async (req, res, next) => {
 });
 
 // // get by id
-// router.get("/:id", async (req, res, next) => {
-//   try {
-//     const characterSheets = await getCharacterSheetsById();
-//     res.send(characterSheets);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
+router.get("/:id", async (req, res, next) => {
+  try {
+    const characterSheets = await getCharacterSheetsById();
+    res.send(characterSheets);
+  } catch (error) {
+    next(error);
+  }
+});
 // // post
-// router.post("/", async (req, res, next) => {
-//   try {
-//     const characterSheets = await createCharacterSheets(req.body);
-//     const existingCharacterSheet = await getCharacterSheetsById(characterSheet.id);
-//   if(existingCharacterSheet){
-//     res.send(characterSheets);
-//   }else {
-//     const newCharacterSheet = await createCharacterSheets(characterSheets);
-//     if (newCharacterSheet){
-//       res.send(newCharacterSheet);
-//     }else{
-//       next({
-//         name: 'CreateCharacterSheetError',
-//         message: 'Error creating Character Sheet'
-//       });
-//     }
-//   }
-//   } catch (err) {
-//     next(err);
-//   }
-// });
-// // put
-// router.put("/:id", async (req, res, next) => {
-//   try {
-//     const characterSheets = await updateCharacterSheets(
-//       req.params.id,
-//       req.body
-//     );
-//     res.send(characterSheets);
-//   } catch (err) {
-//     next(err);
-//   }
-// });
+router.post("/", async (req, res, next) => {
+  try {
+    const characterSheets = await createCharacterSheets(req.body);
+    const existingCharacterSheet = await getCharacterSheetsById(characterSheet.id);
+  if(existingCharacterSheet){
+    res.send(characterSheets);
+  }else {
+    const newCharacterSheet = await createCharacterSheets(characterSheets);
+    if (newCharacterSheet){
+      res.send(newCharacterSheet);
+    }else{
+      next({
+        name: 'CreateCharacterSheetError',
+        message: 'Error creating Character Sheet'
+      });
+    }
+  }
+  } catch (err) {
+    next(err);
+  }
+});
+// put
+router.put("/:id", async (req, res, next) => {
+  try {
+    const characterSheets = await updateCharacterSheets(
+      req.params.id,
+      req.body
+    );
+    res.send(characterSheets);
+  } catch (err) {
+    next(err);
+  }
+});
 
 // // patch
 // router.patch("/:id", async (req, res, next) => {

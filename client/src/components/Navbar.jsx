@@ -10,6 +10,7 @@ export default function NavBar(){
             <br/>
             <Link to='/'>Home page</Link>
             <Link to='/character'>Characters</Link>
+            
         </div>
         </>
     )

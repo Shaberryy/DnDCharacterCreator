@@ -107,3 +107,39 @@ font-size: larger;
   margin-left: auto;
   margin-right: auto;
 }
+
+/* tabs */
+.tabs:not(:last-child){
+  border-right: 1px solid #0c1ea9;
+}
+.content{
+  background-color: #1e1f26;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.active-tabs {
+  background-color: #2b2d53;
+  border-bottom: 1px solid transparent;
+}
+.active-content{
+  display: block;
+}
+.active-tabs::before{
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 5px;
+  background-color: #646cff;
+}
+.content hr{
+  width: 100px;
+  height: 2px;
+  background: #0c1ea9;
+  margin-bottom: 5px;
+}
