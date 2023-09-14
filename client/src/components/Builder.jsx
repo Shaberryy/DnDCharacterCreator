@@ -1,7 +1,7 @@
 // export default function CharacterSheet({ characterSheet })
 // import characterSheets from "./AllCharacters";
 
-import Races from "./Races";
+import Races from "./Races.jsx";
 
 // import choose from "./choose.png"
 export default function CharacterSheet() {
@@ -21,7 +21,7 @@ export default function CharacterSheet() {
       <div className="details">
         <Races />
       </div>
-      
+
       {/* Ability roller */}
       <div className="details">
         <h3>Roll your abilities!!</h3>

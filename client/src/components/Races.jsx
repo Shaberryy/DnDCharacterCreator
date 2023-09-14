@@ -1,15 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
+import "http://localhost:8081/api/races";
+// import "../../../server/api/races"
 
 export default function Races() {
+    const [races, setRace] = useState();
+    // tab
   const [toggleState, setToggleState] = useState(1);
   const toggleTab = (index) => {
       setToggleState(index);
       console.log(index);
   };
+// race data fetch
+useEffect(() => {
+    fetch(`/api/races`)
+    .then((response) => console.log(response))
+}, []);
+
   return (
     <>
     <h1>Races</h1>
+    
     <div className="container">
       <div className="bloc-tabs">
         <div
@@ -71,6 +82,9 @@ export default function Races() {
             </div>
         </div>
       </div>
+    </div>
+    <div>
+    {/* race data */}
     </div>
    </>
   );

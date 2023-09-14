@@ -124,7 +124,7 @@ font-size: larger;
   border-bottom: 1px solid transparent;
 }
 .active-content{
-  display: block;
+  display: inline-block;
 }
 .active-tabs::before{
   content: "";

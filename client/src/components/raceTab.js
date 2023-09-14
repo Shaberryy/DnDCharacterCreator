@@ -1,12 +1,14 @@
-import "./App.css";
-import Races from "./Races";
+// import "./App.css";
+// import Races from "./Races";
 
-function App(){
-    return(
-        <div className="App">
-            <Races/>
-        </div>
-    )
-}
+// function App(){
+//     return(
+//         <div className="App">
+//             <Races/>
+//         </div>
+//     )
+// }
 
-export default App;
+// export default App;
+
+//  unessecary
